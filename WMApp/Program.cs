@@ -1,8 +1,24 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using WMApp.Interfaces;
+using WMApp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+// Use Autofac to inject dependencies
+// Call UseServiceProviderFactory on the Host sub property
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+// Call ConfigureContainer on the Host sub property 
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    //builder.RegisterType<AccessReader>().As<IAccessReader>().SingleInstance();
+    //builder.RegisterType<ExcelReader>().As<IExcelReader>().SingleInstance();
+});
 
 var app = builder.Build();
 
