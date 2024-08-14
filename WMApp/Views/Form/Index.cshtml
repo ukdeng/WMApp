@@ -1,0 +1,199 @@
+﻿@model WMApp.ViewModels.FormViewModel
+@{
+    ViewData["Title"] = "Form";
+}
+
+<form asp-controller="form" asp-action="index" method="post">
+    <div class="container">
+        <div class="row">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="col-md-2">
+                <label class="form-label" asp-for="LanguageList"></label>
+                <select class="form-select" asp-items="Model.LanguageList" asp-for="Language"></select>
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="BrokerList"></label>
+                <select class="form-select" asp-items="Model.BrokerList" asp-for="Broker"></select>
+                <span asp-validation-for="Broker" class="text-danger"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="SalutationList"></label>
+                <select class="form-select" asp-items="Model.SalutationList" asp-for="Salutation"></select>
+                <span asp-validation-for="Salutation" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="FirstName"></label>
+                <input type="text" class="form-control" asp-for="FirstName" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="LastName"></label>
+                <input type="text" class="form-control" asp-for="LastName" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="DOB"></label>
+                <input type="date" class="form-control" asp-for="DOB" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" asp-for="Address"></label>
+                <input type="text" class="form-control" asp-for="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" asp-for="City"></label>
+                <input type="text" class="form-control" asp-for="City" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" asp-for="Province"></label>
+                <input type="text" class="form-control" asp-for="Province" />
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <label class="form-label" asp-for="PostalCode"></label>
+                <input type="text" class="form-control" asp-for="PostalCode" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="Email"></label>
+                <input type="text" class="form-control" asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="Phone"></label>
+                <input type="text" class="form-control" asp-for="Phone" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="CivilStatusList"></label>
+                <select class="form-select" asp-items="Model.CivilStatusList" asp-for="CivilStatus"></select>
+                <span asp-validation-for="CivilStatus" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" asp-for="SIN"></label>
+                <input type="text" class="form-control" asp-for="SIN" />
+                <span asp-validation-for="SIN" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="DependentNumber"></label>
+                <input type="text" class="form-control" asp-for="DependentNumber" />
+                <span asp-validation-for="DependentNumber" class="text-danger"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="Occupation"></label>
+                <input type="text" class="form-control" asp-for="Occupation" />
+                <span asp-validation-for="Occupation" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="Since"></label>
+                <input type="date" class="form-control" asp-for="Since" value=@DateTime.Today.ToString("yyyy-MM-dd") />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="Employer"></label>
+                <input type="text" class="form-control" asp-for="Employer" />
+                <span asp-validation-for="Employer" class="text-danger"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-6">
+                <label class="form-label" asp-for="ValRegInvst"></label>
+                <input type="text" class="form-control" asp-for="ValRegInvst" />
+                <span asp-validation-for="ValRegInvst" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" asp-for="ValNonRegInvst"></label>
+                <input type="text" class="form-control" asp-for="ValNonRegInvst" />
+                <span asp-validation-for="ValNonRegInvst" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="ValRealEstate"></label>
+                <input type="text" class="form-control" asp-for="ValRealEstate" />
+                <span asp-validation-for="ValRealEstate" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="ValMortgage"></label>
+                <input type="text" class="form-control" asp-for="ValMortgage" />
+                <span asp-validation-for="ValMortgage" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="AnnualIncome"></label>
+                <input type="text" class="form-control" asp-for="AnnualIncome" />
+                <span asp-validation-for="AnnualIncome" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="AccountTypeList"></label>
+                <select class="form-select" asp-items="Model.AccountTypeList" asp-for="AccountType"></select>
+                <span asp-validation-for="AccountType" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" asp-for="SubTypeList"></label>
+                <select id="subType" class="form-select" asp-items="Model.SubTypeList" asp-for="SubType"></select>
+                <span asp-validation-for="SubType" class="text-danger"></span>
+            </div>
+            <div id="clNameList" class="col-md-4 d-none">
+                <label class="form-label" asp-for="ClientNameList"></label>
+                <select class="form-select" asp-items="Model.ClientNameList" asp-for="ClientName"></select>
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div id="feeTypeList" class="col-md-4 d-none">
+                <label class="form-label" asp-for="FeeTypes"></label>
+                <select id="feeType" class="form-select" asp-items="Model.FeeTypes" asp-for="FeeType"></select>
+                <span asp-validation-for="FeeType" class="text-danger"></span>
+            </div>
+            <div id="fee" class="col-md-4 d-none">
+                <label class="form-label" asp-for="Fee"></label>
+                <input type="text" class="form-control" asp-for="Fee" />
+                <span asp-validation-for="Fee" class="text-danger"></span>
+            </div>
+            <div id="accountOpts" class="row">
+                @foreach (var opt in Model.AccountList)
+                {
+                    <div class="col-md-4 form-check @opt.Class">
+                        <input class="form-check-input" type="checkbox" value="@opt.Value" name="Accounts" id="opt_@opt.Value" checked="@opt.IsChecked" />
+                        <label class="form-check-lable" for="opt_@opt.Value">
+                            @opt.Description
+                        </label>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        $('#subType').on('change', function () {
+            subVal = this.value;
+            if (subVal == '0') {
+                // nominee
+                $('.nom-only').show();
+                $('.cl-only').hide();
+                $('#clNameList').addClass('d-none')
+                $('#feeTypeList').removeClass('d-none')
+            } else {
+                //clientname
+                $('.nom-only').hide();
+                $('.cl-only').show();
+                $('#clNameList').removeClass('d-none')
+                $('#feeTypeList').addClass('d-none')
+            }
+        })
+
+        $('#feeType').on('change', function () {
+            subVal = this.value;
+            if (subVal == 'Fee Based') {
+                $('#fee').removeClass('d-none')
+            } else {
+                $('#fee').addClass('d-none');
+            }
+        })
+    </script>
+}
