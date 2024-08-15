@@ -2,6 +2,6 @@
 {
     public interface IAccessReader
     {
-        public Dictionary<string, string> GetBrokers();
+
     }
 }
