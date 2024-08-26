@@ -1,8 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h3>Whitemont Diagram</h3>
+    <img src="@Url.Content("~/chart/Diagram.png")" />
+    <br />
+    <br />
+    <h3>Fill your form</h3>
+    <p>For advisors, you can fill out the information form <a href="@Url.Action("Index", "Form")">here</a>.</p>
+    <br />
+    <h3>Errors and exceptions</h3>
+    <p>The app may fail at the time of generating file pacakges, the <a href="@Url.Action("Index", "Logs")">trace tab</a> is designed to provide error logs as detail as possible to provide information.</p>
 </div>

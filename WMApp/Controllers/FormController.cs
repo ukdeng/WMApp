@@ -60,7 +60,7 @@ namespace WMApp.Controllers
             var isFeeBased = model.FeeType == Constants.FeeBased;
 
             var formData = Mapper.MapModelToFormData(agentName, agentCode, model);
-            var files = FormFinder.BuildTargetFormList(isNom, isFeeBased, prefix, model.Accounts);
+            var files = FormFinder.BuildTargetFormList(isNom, isFeeBased, prefix, formData.ClientName, model.Accounts);
             var streams = _formFiller.FillPdf(files, formData);
             var zipName = $"{formData.FirstName}_{formData.LastName}_{DateTime.Now:yyyy_MM_dd-HH_mm_ss}.zip";
 

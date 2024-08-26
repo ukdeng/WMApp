@@ -6,7 +6,7 @@ namespace WMApp.Helpers
 {
 	public static class FormFinder
 	{
-        public static List<string> BuildTargetFormList(bool isNom, bool feebased, string domain, List<string> accounts)
+        public static List<string> BuildTargetFormList(bool isNom, bool feebased, string domain, string clientName, List<string> accounts)
         {
             List<string> files = new();
             Dictionary<string, string> scopedfiles;
@@ -18,11 +18,20 @@ namespace WMApp.Helpers
             } else
             {
                 // Client List
-                scopedfiles = ClientNameFileList(domain);
+                scopedfiles = ClientNameFileList(clientName);
             }
 
+            if (domain == Constants.VMP)
+            {
+                files.Add($"{domain} FORM CODE/{domain}CCO.pdf");
 
-            if(domain == Constants.SPP) {
+                if (feebased)
+                {
+                    files.Add($"{domain} FORM CODE/{domain.ToUpper()}P00.pdf");
+                }
+            }
+
+            if (domain == Constants.SPP) {
                 files.Add($"PEAK {domain}/{domain}CCO.pdf");
 
                 if (feebased)
@@ -36,16 +45,6 @@ namespace WMApp.Helpers
                 if (scopedfiles.ContainsKey(acc))
                 {
                     files.Add(scopedfiles[acc]);
-                }
-            }
-
-            if (domain == Constants.VMP)
-            {
-                files.Add($"{domain} FORM CODE/{domain}CCO.pdf");
-
-                if (feebased)
-                {
-                    files.Add($"{domain} FORM CODE/{domain.ToUpper()}P00.pdf");
                 }
             }
 
@@ -84,6 +83,7 @@ namespace WMApp.Helpers
         {
             Dictionary<string, string> cnList = new()
             {
+                // MFC CIG FID NBC
                 { "rrsp", $"{client.ToUpper()}R01" },
                 { "spousal_rrsp", $"{client.ToUpper()}R02" },
                 { "tfsa", $"{client.ToUpper()}CE0" },
